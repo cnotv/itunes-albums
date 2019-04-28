@@ -5,7 +5,7 @@
       type="flex"
     >
       <a-col
-        v-for="(value, key) in albums"
+        v-for="(value, key) in getAlbums"
         :key="key"
       >
         <Album :info="value"/>
@@ -17,24 +17,25 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Album from '@/components/Album.vue'; // @ is an alias to /src
+import { mapActions, mapGetters } from 'vuex';
 
 @Component({
   components: {
     Album,
   },
-  data() {
-    return {
-      albums: [
-        {
-          title: 'title 1',
-          artist: 'artist 1',
-        },
-        {
-          title: 'title 2',
-          artist: 'artist 2',
-        },
-      ],
-    };
+  computed: {
+    ...mapGetters([
+      'getCurrent',
+      'getAlbums',
+    ]),
+  },
+  methods: {
+    ...mapActions([
+      'loadAlbums',
+    ]),
+  },
+  mounted() {
+    this.$store.dispatch('loadAlbums');
   },
 })
 export default class Home extends Vue {}
