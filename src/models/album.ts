@@ -21,18 +21,18 @@ export interface Icon {
 }
 
 export interface Entry {
-  "im:name":        Icon;
-  "im:image":       IMImage[];
-  "im:itemCount":   Icon;
-  "im:price":       IMPrice;
-  "im:contentType": EntryIMContentType;
+  'im:name':        Icon;
+  'im:image':       IMImage[];
+  'im:itemCount':   Icon;
+  'im:price':       IMPrice;
+  'im:contentType': EntryIMContentType;
   rights:           Icon;
   title:            Icon;
   link:             Link;
   id:               ID;
-  "im:artist":      IMArtist;
+  'im:artist':      IMArtist;
   category:         Category;
-  "im:releaseDate": IMReleaseDate;
+  'im:releaseDate': IMReleaseDate;
 }
 
 export interface Category {
@@ -40,7 +40,7 @@ export interface Category {
 }
 
 export interface CategoryAttributes {
-  "im:id": string;
+  'im:id': string;
   term:    string;
   scheme:  string;
   label:   string;
@@ -52,7 +52,7 @@ export interface ID {
 }
 
 export interface IDAttributes {
-  "im:id": string;
+  'im:id': string;
 }
 
 export interface IMArtist {
@@ -65,7 +65,7 @@ export interface IMArtistAttributes {
 }
 
 export interface EntryIMContentType {
-  "im:contentType": IMContentTypeIMContentType;
+  'im:contentType': IMContentTypeIMContentType;
   attributes:       IMContentTypeAttributes;
 }
 
@@ -75,8 +75,8 @@ export interface IMContentTypeAttributes {
 }
 
 export enum Label {
-  Album = "Album",
-  Music = "Music",
+  Album = 'Album',
+  Music = 'Music',
 }
 
 export interface IMContentTypeIMContentType {
@@ -103,7 +103,7 @@ export interface IMPriceAttributes {
 }
 
 export enum Currency {
-  Usd = "USD",
+  Usd = 'USD',
 }
 
 export interface IMReleaseDate {
@@ -122,10 +122,10 @@ export interface LinkAttributes {
 }
 
 export enum Rel {
-  Alternate = "alternate",
-  Self = "self",
+  Alternate = 'alternate',
+  Self = 'self',
 }
 
 export enum Type {
-  TextHTML = "text/html",
+  TextHTML = 'text/html',
 }
