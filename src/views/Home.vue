@@ -1,26 +1,26 @@
 <template>
   <section>
-    <Search/>
-    <Album
-      v-for="(value, key) in albums"
-      :key="key"
-      :info="value"
-    />
-    <Info/>
+    <a-row
+      :gutter="16"
+      type="flex"
+    >
+      <a-col
+        v-for="(value, key) in albums"
+        :key="key"
+      >
+        <Album :info="value"/>
+      </a-col>
+    </a-row>
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Album from '@/components/Album.vue'; // @ is an alias to /src
-import Info from '@/components/Info.vue'; // @ is an alias to /src
-import Search from '@/components/Search.vue'; // @ is an alias to /src
 
 @Component({
   components: {
     Album,
-    Info,
-    Search,
   },
   data() {
     return {
