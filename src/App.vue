@@ -1,33 +1,22 @@
 <template>
   <a-layout id="app">
-    <a-layout-sider :style="{
-      overflow: 'auto',
-      height: '100vh',
+    <Info/>
+    <a-layout-header :style="{
       position: 'fixed',
-      left: 0,
-      background: 'white'
+      zIndex: 1,
+      width: '100vw',
+      background: '#313131'
     }">
-      <Info/>
-    </a-layout-sider>
+      <Search/>
+    </a-layout-header>
 
-    <a-layout :style="{ marginLeft: '200px' }">
-      <a-layout-header :style="{
-        position: 'fixed',
-        zIndex: 1,
-        width: 'calc(100vw - 200px)',
-        background: '#313131'
-      }">
-        <Search/>
-      </a-layout-header>
-
-      <a-layout-content :style="{
-        padding: '50px',
-        marginTop: '64px',
-        height: 'calc(100vh - 64px)'
-      }">
-        <router-view/>
-      </a-layout-content>
-    </a-layout>
+    <a-layout-content :style="{
+      padding: '50px',
+      marginTop: '64px',
+      height: 'calc(100vh - 64px)'
+    }">
+      <router-view/>
+    </a-layout-content>
   </a-layout>
 </template>
 

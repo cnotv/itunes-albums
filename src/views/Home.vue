@@ -25,7 +25,6 @@ import { mapActions, mapGetters } from 'vuex';
   },
   computed: {
     ...mapGetters([
-      'getCurrent',
       'getAlbums',
     ]),
   },

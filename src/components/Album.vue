@@ -5,6 +5,7 @@
       width: '296px',
       marginBottom: '16px'
     }"
+    @click="setCurrentAlbum(info)"
   >
     <img
       alt="example"
@@ -29,10 +30,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { mapActions } from 'vuex';
 export default Vue.extend({
   name: 'Album',
   props: [
     'info',
   ],
+  methods: {
+    ...mapActions([
+      'setCurrentAlbum',
+    ]),
+  }
 });
 </script>
