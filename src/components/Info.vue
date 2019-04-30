@@ -64,3 +64,16 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="css">
+div.ant-drawer-mask {
+  background-color: rgba(255,255,255,.7);
+}
+
+div.ant-drawer.ant-drawer-open .ant-drawer-mask {
+  backdrop-filter: saturate(180%) blur(10px);
+  transition: opacity .5s cubic-bezier(.28,.11,.32,1);
+  opacity: 1;
+  animation: unset;
+}
+</style>
