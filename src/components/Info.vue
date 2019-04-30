@@ -1,7 +1,6 @@
 <template>
   <a-drawer
     v-if="getCurrentAlbum"
-    :title="getCurrentAlbum ? getCurrentAlbum.title.label : ''"
     @close="setCurrentAlbum()"
     :visible="!!getCurrentAlbum"
     :width="420"
@@ -11,16 +10,19 @@
       paddingBottom: '108px'
     }"
   >
-    <div>
-      <p>{{getCurrentAlbum.category.attributes.label}} · {{getCurrentAlbum['im:releaseDate'].label}}</p>
+    <div :style="{ padding: '24px', textAlign: 'center'}">
       <img
         alt="example"
         :src="getCurrentAlbum['im:image'][2].label"
         slot="cover"
         :style="{
-          width: '50%'
+          width: '50%',
+          margin: '24px',
+          borderRadius: '50%'
         }"
       />
+      <h3>{{getCurrentAlbum.title.label}}</h3>
+      <p>{{getCurrentAlbum.category.attributes.label}} · {{getCurrentAlbum['im:releaseDate'].label}}</p>
       <h1>{{getCurrentAlbum['im:price'].label}}</h1>
       <p>{{getCurrentAlbum.rights.label}}</p>
       <p><strong>Released:</strong> {{getCurrentAlbum['im:releaseDate'].label}}</p>
