@@ -77,5 +77,8 @@ div.ant-drawer.ant-drawer-open .ant-drawer-mask {
   transition: opacity .5s cubic-bezier(.28,.11,.32,1);
   opacity: 1;
   animation: unset;
+  margin: -20px;
+  padding: 20px;
+  box-sizing: content-box;
 }
 </style>
