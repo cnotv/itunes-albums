@@ -9,19 +9,11 @@
       :src="info['im:image'][2].label"
       slot="cover"
     />
-    <template class="ant-card-actions" slot="actions">
-      <a-icon type="ellipsis" />
-    </template>
 
     <a-card-meta
-      :title="info.title.label"
+      :title="info['im:name'].label"
       :description="info['im:artist'].label"
-    >
-      <a-avatar
-        slot="avatar"
-        :src="info['im:image'][0].label"
-      />
-    </a-card-meta>
+    />
   </a-card>
 </template>
 
@@ -41,9 +33,33 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+// TODO: Export globally
+$gutter: 16px;
+
+// FIXME: Move UI libraries modification
+// in an unique file in the assets folder and create modifier classes
 .album {
-  width: 296px;
-  margin-bottom: 16px;
+  &.ant-card {
+    width: 100%;
+    margin-bottom: $gutter;
+  }
+
+  .ant-card-body,
+  .ant-card-meta {
+    &:before,
+    &:after { 
+      display: none;
+    }
+  }
+
+  .ant-card-cover {
+    float: left;
+    margin-right: $gutter;
+
+    img {
+      width: 94px;
+    }
+  }
 }
 </style>

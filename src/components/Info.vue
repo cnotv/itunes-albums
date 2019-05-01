@@ -17,7 +17,8 @@
         slot="cover"
         class="info__image"
       />
-      <h3>{{getCurrentAlbum.title.label}}</h3>
+      <h3>{{getCurrentAlbum['im:name'].label}}</h3>
+      <h2>{{getCurrentAlbum['im:artist'].label}}</h2>
       <p>{{getCurrentAlbum.category.attributes.label}} · {{getCurrentAlbum['im:releaseDate'].label | getYear}}</p>
       <h1>{{getCurrentAlbum['im:price'].label}}</h1>
       <p>{{getCurrentAlbum.rights.label}}</p>
@@ -92,6 +93,8 @@ export default Vue.extend({
   }
 }
 
+// FIXME: Move UI libraries modification
+// in an unique file in the assets folder and create modifier classes
 div.ant-drawer-mask {
   background-color: rgba(255,255,255,.7);
 }

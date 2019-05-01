@@ -5,6 +5,9 @@
       type="flex"
     >
       <a-col
+        :xs="{ span: 24 }"
+        :md="{ span: 12 }"
+        :lg="{ span: 8 }"
         v-for="(value, key) in getAlbums"
         :key="key"
       >
