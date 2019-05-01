@@ -4,7 +4,7 @@ export interface Label {
   label: string;
 }
 
-export interface Album {
+export interface Request {
   author:  Author;
   entry:   Entry[];
   updated: Label;

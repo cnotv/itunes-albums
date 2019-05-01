@@ -2,21 +2,12 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import resource from '@/handlers/resource';
 
-import { Album, Entry } from './models/album';
+import { Store } from './models/store';
 
 Vue.use(Vuex);
 
-interface State {
-  current: Entry;
-  albums: Album[];
-}
-
 export default new Vuex.Store({
-  state: {
-    current: undefined,
-    albums: [],
-  },
-
+  state: new Store(),
   mutations: {
     LOAD_ALBUMS: (state, payload) => {
       return state.albums = payload.entry;
@@ -47,7 +38,7 @@ export default new Vuex.Store({
   },
 
   getters: {
-    getCurrentAlbum: (state: State) => state.current,
-    getAlbums: (state: State) => state.albums,
+    getCurrentAlbum: (state: Store) => state.current,
+    getAlbums: (state: Store) => state.albums,
   },
 });
