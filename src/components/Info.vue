@@ -18,10 +18,10 @@
         class="info__image"
       />
       <h3>{{getCurrentAlbum.title.label}}</h3>
-      <p>{{getCurrentAlbum.category.attributes.label}} · {{getCurrentAlbum['im:releaseDate'].label}}</p>
+      <p>{{getCurrentAlbum.category.attributes.label}} · {{getCurrentAlbum['im:releaseDate'].label | getYear}}</p>
       <h1>{{getCurrentAlbum['im:price'].label}}</h1>
       <p>{{getCurrentAlbum.rights.label}}</p>
-      <p><strong>Released:</strong> {{getCurrentAlbum['im:releaseDate'].label}}</p>
+      <p><strong>Released:</strong> {{getCurrentAlbum['im:releaseDate'].label | getDate}}</p>
     </div>
     
     <div class="info__footer">
@@ -37,12 +37,27 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapGetters, mapActions } from 'vuex';
+import moment from 'moment';
+
 export default Vue.extend({
   name: 'Info',
   computed: {
     ...mapGetters([
       'getCurrentAlbum',
     ]),
+  },
+  filters: {
+    getYear: (value: string) => {
+      if (value) {
+        return moment(String(value)).year();
+      }
+    },
+    getDate: (value: string) => {
+      if (value) {
+        // Note: This should be locale format
+        return moment(String(value)).format('DD/MM/YYYY');
+      }
+    },
   },
   methods: {
     ...mapActions([
