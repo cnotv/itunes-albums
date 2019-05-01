@@ -1,10 +1,7 @@
 <template>
   <a-card
     hoverable
-    :style="{
-      width: '296px',
-      marginBottom: '16px'
-    }"
+    class="album"
     @click="setCurrentAlbum(info)"
   >
     <img
@@ -40,6 +37,13 @@ export default Vue.extend({
     ...mapActions([
       'setCurrentAlbum',
     ]),
-  }
+  },
 });
 </script>
+
+<style lang="scss" scoped>
+.album {
+  width: 296px;
+  margin-bottom: 16px;
+}
+</style>

@@ -10,16 +10,12 @@
       paddingBottom: '108px'
     }"
   >
-    <div :style="{ padding: '24px', textAlign: 'center'}">
+    <div class="info__content">
       <img
         alt="example"
         :src="getCurrentAlbum['im:image'][2].label"
         slot="cover"
-        :style="{
-          width: '50%',
-          margin: '24px',
-          borderRadius: '50%'
-        }"
+        class="info__image"
       />
       <h3>{{getCurrentAlbum.title.label}}</h3>
       <p>{{getCurrentAlbum.category.attributes.label}} · {{getCurrentAlbum['im:releaseDate'].label}}</p>
@@ -28,18 +24,7 @@
       <p><strong>Released:</strong> {{getCurrentAlbum['im:releaseDate'].label}}</p>
     </div>
     
-    <div
-      :style="{
-        position: 'absolute',
-        left: 0,
-        bottom: 0,
-        width: '100%',
-        borderTop: '1px solid #e9e9e9',
-        padding: '10px 16px',
-        background: '#fff',
-        textAlign: 'right',
-      }"
-    >
+    <div class="info__footer">
       <a-button
         :rel="getCurrentAlbum.link.attributes.rel"
         :href="getCurrentAlbum.link.attributes.href"
@@ -63,11 +48,35 @@ export default Vue.extend({
     ...mapActions([
       'setCurrentAlbum',
     ]),
-  }
+  },
 });
 </script>
 
-<style lang="css">
+<style lang="scss">
+.info {
+  &__content {
+    padding: 24px;
+    text-align: center;
+  } 
+
+  &__footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #e9e9e9;
+    padding: 10px 16px;
+    background: #fff;
+    text-align: right;
+  }
+
+  &__image {
+    width: 50%;
+    margin: 24px;
+    border-radius: 50%;
+  }
+}
+
 div.ant-drawer-mask {
   background-color: rgba(255,255,255,.7);
 }
