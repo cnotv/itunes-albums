@@ -13,7 +13,6 @@
     <a-layout-content :style="{
       padding: '50px',
       marginTop: '64px',
-      height: 'calc(100vh - 64px)'
     }">
       <router-view/>
     </a-layout-content>

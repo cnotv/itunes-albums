@@ -4,7 +4,7 @@ export interface Label {
   label: string;
 }
 
-export interface Request {
+export interface Response {
   author:  Author;
   entry:   Entry[];
   updated: Label;
